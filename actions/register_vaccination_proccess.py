@@ -47,13 +47,15 @@ class RegisterAttendance:
         print(self.patient.name + ' selected ✅')
         print(self.professionalTypes[self.selectedType] + ' selected ✅')
 
-        input('\nPlease, input the ' + self.professionalTypes[self.selectedType])
+        print('\nPlease, input the ' + self.professionalTypes[self.selectedType] + ' id:')
+
+        professionalId = input('\n->')
 
         if selectedType == self.professionalTypes['DOCTOR']:
-            return self.store.doctors.find()
+            return self.store.doctors.find(professionalId)
 
         if selectedType == self.professionalTypes['NURSE']:
-            return self.store.nurses.find()
+            return self.store.nurses.find(professionalId)
 
     def getRoom(self):
         os.system('clear')
@@ -62,4 +64,4 @@ class RegisterAttendance:
         print(self.professionalTypes[self.selectedPatient] + ' ' + self.selectedProfessional.name + ' selected ✅')
         print('\nType the room code: ')
 
-        return input('-> ')
+        return input('\n-> ')

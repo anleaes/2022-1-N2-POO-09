@@ -1,4 +1,6 @@
 import os
+from re import A
+from time import sleep
 
 class Create:
     @staticmethod
@@ -24,3 +26,7 @@ class Create:
         os.system('clear')
 
         print('Patient successfully created ✅')
+
+        sleep(1)
+
+        os.system('clear')

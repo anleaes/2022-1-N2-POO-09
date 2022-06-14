@@ -1,11 +1,19 @@
 from datetime import date
-from re import I
+
+import sys
+sys.path.append('..')
+from store.store import Store
 
 class Attendance:
-    def __init__(self, professional, patient, attendedAt):
+    def __init__(self, professional, patient, room, store: Store):
+        self.__id           = store.attendances.getNewId()
         self.professional = professional
         self.patient      = patient
-        self.__attendedAt   = attendedAt
+        self.room         = room
+        self.__attendedAt = None
+
+    def getId(self):
+        return self.__id
 
     def markAsAttended(self):
         self.__attendedAt = date.today()
